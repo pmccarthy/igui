@@ -1,5 +1,22 @@
 extends layout
-
 block content
-  h1= title
-  p Welcome to #{title}
+	div.top
+		legend fh-igui
+	div.container
+		form(action='/submit',method='post')
+			fieldset
+				legend Organisation
+				label(for='orgName') Organisation Name
+				input(id='orgName',type='text',placeholder='e.g. SAM1',value='',name='orgName')
+				
+				legend VPC Settings
+				label(for='awsRegion') AWS Region
+				input(id='awsRegion',type='text',placeholder='e.g. eu-west-1',value='',name='awsRegion')
+				
+				label(for='cidrRange') CIDR Range
+				input(id='cidrRange',type='text',placeholder='e.g. 10.1.0.0/16',value='',name='cidrRange')
+
+			button.btn(type='submit') Submit
+				
+	div.content
+	div.footer
