@@ -1,0 +1,94 @@
+{
+	"core": {
+	  "authorize_ingress": [
+	    {
+	      "protocols": ["all"],
+	      "start": 0,
+	      "end": 65535,
+	      "groups": ["core", "core-studio-lb"]
+	    }
+	  ]
+	},
+	"core-git": {
+	  "authorize_ingress": [
+	    {
+	      "protocols": ["tcp"],
+	      "start": 22,
+	      "end": 22,
+	      "sources": ["0.0.0.0/0"]
+	    },
+	    {
+	      "protocols": ["all"],
+	      "start": 0,
+	      "end": 65535,
+	      "sources": ["core"]
+	    }
+	  ]
+	},
+	"core-studio-lb": {
+	  "authorize_ingress": [
+	    {
+	      "protocols": ["tcp"],
+	      "start": 80,
+	      "end": 80,
+	      "sources": ["0.0.0.0/0"]
+	    },
+	    {
+	      "protocols": ["tcp"],
+	      "start": 443,
+	      "end": 443,
+	      "sources": ["0.0.0.0/0"]
+	    }
+	  ]
+	},
+	"core-ditch-lb": {
+	  "authorize_ingress": [
+	    {
+	      "protocols": ["tcp"],
+	      "start": 8802,
+	      "end": 8802,
+	      "groups": ["core"]
+	    }
+	  ]
+	},
+	"core-scm-lb": {
+	  "authorize_ingress": [
+	    {
+	      "protocols": ["tcp"],
+	      "start": 8801,
+	      "end": 8801,
+	      "groups": ["core"]
+	    }
+	  ]
+	},
+	"core-sql-lb": {
+	  "authorize_ingress": [
+	    {
+	      "protocols": ["tcp"],
+	      "start": 3306,
+	      "end": 3306,
+	      "groups": ["core"]
+	    }
+	  ]
+	},
+	"core-messaging-lb": {
+	  "authorize_ingress": [
+	    {
+	      "protocols": ["tcp"],
+	      "start": 8803,
+	      "end": 8803,
+	      "groups": ["core"]
+	    }
+	  ]
+	},
+	"core-metrics-lb": {
+	  "authorize_ingress": [
+	    {
+	      "protocols": ["tcp"],
+	      "start": 8813,
+	      "end": 8813,
+	      "groups": ["core"]
+	    }
+	  ]
+	}
+}

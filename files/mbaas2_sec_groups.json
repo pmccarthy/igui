@@ -1,0 +1,54 @@
+{
+  "mbaas2": {
+    "authorize_ingress": [
+      {
+        "protocols": ["-1"],
+        "start": 0,
+        "end": 65535,
+        "groups": ["mbaas2", "mbaas2-api-lb"]
+      },
+      {
+        "protocols": ["tcp", "udp"],
+        "start": 8802,
+        "end": 8802,
+        "groups": ["mbaas2-ditch-lb"]
+      }
+    ]
+  },
+  "mbaas2-api-lb": {
+    "authorize_ingress": [
+      {
+        "protocols": ["tcp"],
+        "start": 80,
+        "end": 80,
+        "sources": ["0.0.0.0/0"]
+      },
+      {
+        "protocols": ["tcp"],
+        "start": 443,
+        "end": 443,
+        "sources": ["0.0.0.0/0"]
+      }
+    ]
+  },
+  "mbaas2-ditch-lb": {
+    "authorize_ingress": [
+      {
+        "protocols": ["tcp"],
+        "start": 8802,
+        "end": 8802,
+        "groups": ["mbaas2"]
+      }
+    ]
+  },
+  "mbaas2-gw": {
+    "authorize_ingress": [
+      {
+        "protocols": ["-1"],
+        "start": 0,
+        "end": 65535,
+        "groups": ["mbaas2"]
+      }
+    ]
+  }
+}

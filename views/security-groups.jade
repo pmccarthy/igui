@@ -1,0 +1,23 @@
+legend Security Groups
+label(for='securityGroups') Select groups
+.radio
+	label
+		input(id='coreGroups',type='radio',name='selectedGroups',value='coreOnly')
+		| Core Only
+.radio
+	label
+		input(id='mbaasGroups',type='radio',name='selectedGroups',value='mbaasOnly')
+		| MBaaS Only
+.radio
+	label
+		input(id='coreMbaasGroups',type='radio',name='selectedGroups',value='twoMbaas')
+		| Two MBaaS(es)
+.radio
+	label
+		input(id='coreMbaasGroups',type='radio',name='selectedGroups',value='coreWithMbaas')
+		| Core with a Single MBaaS
+.radio
+	label
+		input(id='coreTwoMbaasGroups',type='radio',name='selectedGroups',value='coreWithTwoMbaas')
+		| Core with Two MBaaS(es)
+br

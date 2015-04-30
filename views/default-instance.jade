@@ -1,0 +1,29 @@
+legend Default Instance Settings
+label(for='defaultAmi') AMI
+input(id='defaultAmi',type='text',placeholder='e.g. ami-1a2b3c4d',value='',name='defaultAmi')
+br
+br
+p Monitoring Enabled?
+.radio
+	label
+		input(id='monitoringenabledtrue',type='radio',name='monitoringEnabled',value='true')
+		| True
+.radio
+	label    
+		input(id='monitoringenabledfalse',type='radio',name='monitoringEnabled',value='false')
+		| False
+br
+label(for='defaultInstanceType') Instance Type
+input(id='defaultInstanceType',type='text',placeholder='e.g. c3.large',value='',name='defaultInstanceType')
+br
+br
+p API Termination Disabled?
+.radio
+	label
+		input(id='apiterminationtrue',type='radio',name='apiTermination',value='true')
+		| True
+.radio
+	label    
+		input(id='apiterminationfalse',type='radio',name='apiTermination',value='false')
+		| False
+br

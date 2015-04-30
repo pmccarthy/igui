@@ -1,0 +1,27 @@
+p Secondary EBS Volume?
+.radio
+	label
+		input(id='secondaryebstrue',type='radio',name='secondaryEbs', value='true')
+		| Yes
+.radio
+	label    
+		input(id='secondaryebsfalse',type='radio',name='secondaryEbs',value='false')
+		| No
+br
+label(for='secondarydevice') Secondary Mount Point
+input(id='secondarydevice',type='text',placeholder='e.g. /dev/sdb',value='',name='secondaryDevice')
+
+label(for='secondaryvolumesize') Secondary Volume Size (GB)
+input(id='secondaryvolumesize',type='text',placeholder='e.g. 40',value='',name='secondaryVolumeSize')
+br
+br
+p Encryption Enabled?
+.radio
+	label
+		input(id='secondaryencryptionenabledtrue',type='radio',name='secondaryEncryptionEnabled')
+		| True
+.radio
+	label    
+		input(id='secondaryencryptionenabledfalse',type='radio',name='secondaryEncryptionEnabled')
+		| False
+br

@@ -1,0 +1,18 @@
+legend Default EBS Settings
+label(for='defaultdevice') Mount Point
+input(id='defaultdevice',type='text',placeholder='e.g. /dev/sda1',value='',name='defaultDevice')
+
+label(for='defaultvolumesize') Volume Size (GB)
+input(id='defaultvolumesize',type='text',placeholder='e.g. 40',value='',name='defaultVolumeSize')
+br
+br
+p Encryption Enabled?
+.radio
+	label
+		input(id='defaultencryptionenabledtrue',type='radio',name='defaultEncryptionEnabled')
+		| True
+.radio
+	label    
+		input(id='defaultencryptionenabledfalse',type='radio',name='defaultEncryptionEnabled')
+		| False
+br

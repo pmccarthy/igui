@@ -5,16 +5,17 @@ block content
 	div.container
 		form(action='/submit',method='post')
 			fieldset
-				legend Organisation
-				label(for='orgName') Organisation Name
-				input(id='orgName',type='text',placeholder='e.g. SAM1',value='',name='orgName')
+				include organisation
 				
-				legend VPC Settings
-				label(for='awsRegion') AWS Region
-				input(id='awsRegion',type='text',placeholder='e.g. eu-west-1',value='',name='awsRegion')
+				include vpc
 				
-				label(for='cidrRange') CIDR Range
-				input(id='cidrRange',type='text',placeholder='e.g. 10.1.0.0/16',value='',name='cidrRange')
+				include default-instance
+				
+				include default-ebs
+				
+				include secondary-ebs
+				
+				include security-groups
 
 			button.btn(type='submit') Submit
 				
