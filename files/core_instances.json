@@ -1,0 +1,170 @@
+{
+ "instances": {
+  "mgt1": {
+    "aws": {
+      "security_groups": ["ops-admin", "core"],
+      "private_ip_address": "10.61.10.133",
+      "subnet": "1c",
+      "block_device_mappings": [
+        {
+          "device_name": "/dev/sda1",
+          "ebs": {
+            "volume_size": 40,
+            "volume_type": "gp2",
+            "delete_on_termination": false
+          }
+        },
+        {
+          "device_name": "/dev/sdb",
+          "ebs": {
+            "volume_size": 100,
+            "volume_type": "gp2",
+            "delete_on_termination": false,
+            "encrypted": true
+          }
+        },
+        {
+          "device_name": "/dev/sdf",
+          "ebs": {
+            "volume_size": 100,
+            "volume_type": "gp2",
+            "delete_on_termination": false,
+            "encrypted": true
+          }
+        }
+      ]
+    },
+    "roles": ["mount_data_volumes", "management_server", "platform_mongo_server", "mongo_backup_server", "galera_arbiter_server", "galera_backup_server"]
+  },
+  "app1": {
+    "aws": {
+      "security_groups": ["ops-admin", "core"],
+      "private_ip_address": "10.61.10.5",
+      "subnet": "1a",
+      "block_device_mappings": [
+        {
+          "device_name": "/dev/sda1",
+          "ebs": {
+            "volume_size": 40,
+            "volume_type": "gp2",
+            "delete_on_termination": false
+          }
+        }
+      ]
+    },
+    "load_balancers": ["studio"],
+    "roles": ["app_server"]
+  },
+  "app2": {
+    "aws": {
+      "security_groups": ["ops-admin", "core"],
+      "private_ip_address": "10.61.10.68",
+      "subnet": "1b",
+      "block_device_mappings": [
+        {
+          "device_name": "/dev/sda1",
+          "ebs": {
+            "volume_size": 40,
+            "volume_type": "gp2",
+            "delete_on_termination": false
+          }
+        }
+      ]
+    },
+    "load_balancers": ["studio"],
+    "roles": ["app_server"]
+  },
+  "db1": {
+    "aws": {
+      "security_groups": ["ops-admin", "core"],
+      "private_ip_address": "10.61.10.6",
+      "subnet": "1a"
+    },
+    "load_balancers": ["sql"],
+    "roles": ["mount_data_volumes", "galera_server", "platform_mongo_server", "rabbitmq_server"]
+  },
+  "db2": {
+    "aws": {
+      "security_groups": ["ops-admin", "core"],
+      "private_ip_address": "10.61.10.70",
+      "subnet": "1b"
+    },
+    "load_balancers": ["sql"],
+    "roles": ["mount_data_volumes", "galera_server", "platform_mongo_server", "rabbitmq_server", "fh-reaper"]
+  },
+  "util1": {
+    "aws": {
+      "security_groups": ["ops-admin", "core"],
+      "private_ip_address": "10.61.10.7",
+      "subnet": "1a"
+    },
+    "load_balancers": ["scm", "messaging", "metrics"],
+    "roles": ["mount_data_volumes", "fh-scm", "fh-messaging", "fh-metrics", "fh-docs"]
+  },
+  "util2": {
+    "aws": {
+      "security_groups": ["ops-admin", "core"],
+      "private_ip_address": "10.61.10.71",
+      "subnet": "1b"
+    },
+    "load_balancers": ["messaging", "metrics"],
+    "roles": ["mount_data_volumes", "fh-scm", "fh-messaging", "fh-metrics"]
+  },
+  "git1": {
+    "aws": {
+      "instance_type": "m3.medium",
+      "security_groups": ["ops-admin", "core-git"],
+      "private_ip_address": "10.61.10.8",
+      "subnet": "1a",
+      "block_device_mappings": [
+        {
+          "device_name": "/dev/sda1",
+          "ebs": {
+            "volume_size": 40,
+            "volume_type": "gp2",
+            "delete_on_termination": false
+          }
+        },
+        {
+          "device_name": "/dev/sdb",
+          "ebs": {
+            "volume_size": 50,
+            "volume_type": "gp2",
+            "delete_on_termination": false,
+            "encrypted": true
+          }
+        }
+      ]
+    },
+    "roles": ["mount_data_volumes", "gitlab-shell_server"]
+  },
+  "git2": {
+    "aws": {
+      "instance_type": "m3.medium",
+      "security_groups": ["ops-admin", "core-git"],
+      "private_ip_address": "10.61.10.72",
+      "subnet": "1b",
+      "block_device_mappings": [
+        {
+          "device_name": "/dev/sda1",
+          "ebs": {
+            "volume_size": 40,
+            "volume_type": "gp2",
+            "delete_on_termination": false
+          }
+        },
+        {
+          "device_name": "/dev/sdb",
+          "ebs": {
+            "volume_size": 50,
+            "volume_type": "gp2",
+            "delete_on_termination": false,
+            "encrypted": true
+          }
+        }
+      ]
+    },
+    "roles": ["mount_data_volumes", "gitlab-shell_server"]
+  }
+}
+}
